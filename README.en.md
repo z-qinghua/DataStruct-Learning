@@ -1,10 +1,10 @@
 # 数据结构学习
 
 #### Description
-此项目用来学习数据结构，保存练习代码。。
+此项目用来学习数据结构，保存练习代码。。。。
 
 #### Software Architecture
-Software architecture description
+
 
 #### Installation
 
