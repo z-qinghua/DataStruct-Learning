@@ -30,8 +30,7 @@ int main(){
 	SqList L;					//声明一个顺序表
 	InitList(L); 				//初始化顺序表
 	//....未完待续
-	int i;
-	for(i=0;i<L.length;i++)
+	for(int i=0;i<L.length;i++)
 		printf("data[%d]=%d\n",i,L.data[i]); 
 	return 0; 
 	 
