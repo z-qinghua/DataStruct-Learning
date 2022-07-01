@@ -1,6 +1,8 @@
 /*
-顺序存储：给各个数据元素分配连续的存储空间，大小为MaxSize*sizeof(ElemType) 
+1.顺序存储：给各个数据元素分配连续的存储空间，大小为MaxSize*sizeof(ElemType) 
+2.栈是只允许在一端进行插入或或删除操作的线性表 
 */
+
 #include<stdio.h>
 
 #define MaxSize 10			//定义栈中元素的最大个数
@@ -58,16 +60,16 @@ int main(){
 	SqStack S;			//声明一个顺序栈
 	InitstStack(S);
 	Push(S,2);
-	printf("%d\n",S.top); 	//栈丁指针位置 
+	printf("此时栈顶元素位置：%d\n",S.top); 	//栈丁指针位置 
 	Push(S,3);
-	printf("%d\n",S.top);
+	printf("此时栈顶元素位置：%d\n",S.top);
 	
 	int x=-1;
 	Pop(S,x);
-	printf("%d\n",x);		//出栈元素值 
-	printf("%d\n",S.top);	//出栈后元素指针位置 
+	printf("出栈元素值：%d\n",x);		//出栈元素值 
+	printf("出栈后元素指针位置：%d\n",S.top);	//出栈后元素指针位置 
 	
-	for(int i=0;i<=MaxSize;i++){
+	for(int i=0;i<=S.top;i++){
 		printf("%d\n",S.data[i]);
 	}
 		
