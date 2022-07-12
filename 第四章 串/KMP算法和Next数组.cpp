@@ -25,7 +25,18 @@ void Get_Next(SString T,int next[]){
 			j=next[j];
 	}
 }
+/*
+nextval数组求法
+先算出next数组
+先令nextval[1]=0
+for(int j=2;j<=T.length;j++){
+	if(T.ch[next[j]]==T.ch[j])
+		nextval[j]=nextval[next[j]];
+	else
+		nextval[j]=next[j]; 
+}
 
+*/
 //KMP算法 
 int Index(SString S,SString T){
 	int i=1,j=1;
@@ -45,7 +56,10 @@ int Index(SString S,SString T){
 	else
 		return 0;
 }
-
+/*
+KMP算法的优化
+当子串和模式串不匹配时令 j=nextval[j];
+*/
 
 int main(){
 	
