@@ -1,35 +1,40 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-#define MaxSize 100
+//双亲表示法（顺序存储）
+//每个结点保存指向双亲的“指针” 
 
-//二叉树顺序存储
-struct TreeNode{
-	int value;	//结点数据元素
-	bool isEmpty; 
+#define MAX_TREE_SIZE 100	//树中最多结点数
+typedef struct{		//树的结点定义 
+	int data;		//数据元素 
+	int parent;			//双亲位置域 
+}PTNode;
+typedef struct{			//树的类型定义 
+	PTNode nodes[MAX_TREE_SIZE];	//双亲表示
+	int n;				//结点数 
+}PTree;
+
+//孩子表示法（顺序+链式存储）
+//孩子表示法：顺序存储各个结点，每个结点中保存孩子链表头指针
+
+struct CTNode{
+	int child;		//孩子结点在数组中的位置
+	struct CTNode *next;	//下一个孩子 
 };
 
-TreeNode  t[MaxSize];	//定义一个结构体数组， 按照上至下、从左至右的顺序依次存储完二叉树中的各个结点
-//可以让第一个位置空缺，保证数组下标和结点编号一致 
+typedef struct{
+	int data;
+	struct CTNode *firstChild;	//第一个孩子 
+}CTBox;
 
-//二叉树的链式存储
-typedef struct BiTNode{
-	int data;		//数据域
-	struct BiTNode *lchild,*rchild;		//左、右孩子指针 
-}BiTNode,*BiTree;
-//n个结点的二叉链表共有n+1个空链域 
+typedef struct{
+	CTBox nodes[MAX_TREE_SIZE];
+	int n,r;	//结点数和根的位置 
+}CTree;
 
-//定义一颗空树
-BiTree root=NULL;
+//孩子兄弟表示法 
 
-//插入根节点
-root=(BiTree)malloc(sizeof(BiTNode));
-root->data={1};
-root->lchild=NULL;
-root->rchild=NULL;
-
-//插入新结点
-BiTNode *p=(BiTNode *)malloc(sizeof(BiTNode));
-p->data={2};
-p->lchild=NULL;
-p->rchild=NULL;
-root->lchild=p;	//作为根结点的左孩子 
+typedef struct CSNode{
+	int data;
+	struct CSNode *firstchild,*nextsibling;	//第一个孩子和右兄弟指针 
+}CSNode,*CSTree; 
